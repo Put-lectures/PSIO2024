@@ -37,6 +37,17 @@ void add_element(sNode *node, string word)
         }
     }
 }
+
+void print(sNode *node)
+{
+    if (node->l_ != nullptr) {
+        print(node->l_);
+    }
+    cout << node->word_ << " - " << node->counter_ << endl;
+    if (node->r_ != nullptr) {
+        print(node->r_);
+    }
+}
 int main()
 {
     fstream file("/home/piotr/Downloads/gpl-3.0.txt", ios::in);
@@ -52,5 +63,7 @@ int main()
             }
         }
     }
+
+    print(root);
     return 0;
 }
